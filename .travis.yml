@@ -1,0 +1,10 @@
+language: generic
+sudu: required
+services: 
+  - docker
+
+before_install:
+  - docker build -t gfehrk2a/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true gfehrk2a/docker-react npm run test
